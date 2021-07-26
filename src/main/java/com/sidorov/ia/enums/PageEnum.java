@@ -1,7 +1,9 @@
 package com.sidorov.ia.enums;
 
 public enum PageEnum {
-    MAIN("main");
+    MAIN("main"),
+    MESSAGE("message"),
+    BLOG("blog");
 
     public String getName() {
         return name;
