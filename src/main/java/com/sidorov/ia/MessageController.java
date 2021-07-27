@@ -23,20 +23,19 @@ public class MessageController {
     @Autowired
     private MessageRepository messageRepository;
 
-    @GetMapping("/greeting")
-    public String getGreeting(@RequestParam(name = "name", required = true, defaultValue = "World") String family, Map<String, Object> model) {
-        model.put("family", family);
+    @GetMapping("/")
+    public String home(Map<String, Object> model) {
         return "greeting";
     }
 
-    @GetMapping
+    @GetMapping("/message")
     public String messages(Map<String, Object> model) {
         Iterable<Message> messages = messageRepository.findAll();
         model.put("messages", messages);
         return MESSAGE.getName();
     }
 
-    @PostMapping
+    @PostMapping("/message")
     public String add(@RequestParam String text,
                       @RequestParam String tag,
                       Map<String, Object> model) {
